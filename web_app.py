@@ -1,7 +1,6 @@
 import os
-
+import signal
 from flask import Flask
-
 import db_connector
 
 # #
