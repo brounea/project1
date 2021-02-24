@@ -15,7 +15,7 @@ pipeline {
                     if (Boolean.valueOf(env.UNIX)) {
                         sh 'python 1.py'
                     } else {
-                        bat 'python 1.py'
+                        sh 'python 1.py'
                     }
                 }
             }
