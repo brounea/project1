@@ -9,7 +9,8 @@ pipeline {
 
     stage('runRestServer') {
       steps {
-        sh 'sh start python rest_app.py'
+        sh '''sh \' python rest_app.py\'
+'''
       }
     }
 
