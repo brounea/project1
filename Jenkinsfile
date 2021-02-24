@@ -15,7 +15,7 @@ pipeline {
                     if (Boolean.valueOf(env.UNIX)) {
                         sh 'python 1.py'
                     } else {
-                        sh 'python 1.py'
+                        sh 'python rest_app.py'
                     }
                 }
             }
