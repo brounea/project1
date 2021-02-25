@@ -1,24 +1,25 @@
 pipeline {
-    agent any
-    stages {
-        stage('checkout') {
-            steps {
-                script {
-                    properties([pipelineTriggers([pollSCM('* * * * *')])])
-                }
-                git 'https://github.com/brounea/project1.git'
-            }
+  agent any
+  stages {
+    stage('checkout') {
+      steps {
+        script {
+          properties([pipelineTriggers([pollSCM('* * * * *')])])
         }
-        stage('run python') {
-            steps {
-                script {
-                    if (Boolean.valueOf(env.UNIX)) {
-                        sh 'python 1.py'
-                    } else {
-                        sh 'python rest_app.py'
-                    }
-                }
-            }
-        }
+
+        git 'https://github.com/brounea/project1.git'
+      }
     }
+
+    stage('Setup venv') {
+      steps {
+        script {
+
+          sh 'python3.9 -m venv calculator'
+        }
+
+      }
+    }
+
+  }
 }
