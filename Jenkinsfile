@@ -22,5 +22,11 @@ pipeline {
       }
     }
 
+    stage('run RestApp') {
+      steps {
+        sh 'sh \' nohup python3.9 web_app.py &\''
+      }
+    }
+
   }
 }
