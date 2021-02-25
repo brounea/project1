@@ -98,5 +98,3 @@ def runPythonFile(pyfilename, bckground){
 		currentBuild.result = "FAILURE"
 	}
 }
-
-}
