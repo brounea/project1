@@ -17,9 +17,9 @@ pipeline {
 			steps {
 				script {
 					if (isUnix()) {
-						sh 'pip install flask requests selenium pymysql -t ./'
+						sh 'pip3 install flask requests selenium pymysql -t ./'
 					} else {
-						bat 'pip install flask requests selenium pymysql -t ./'
+						bat 'pip3 install flask requests selenium pymysql -t ./'
 					}
 				}
 			}
@@ -82,11 +82,11 @@ def runPythonFile(pyfilename, bckground){
 		if (isUnix()) {
 		   if (${bckground} == 0) {
 		      //running normal process
-			    sh "python ${pyfilename}"
+			    sh "python3.9 ${pyfilename}"
 			}
 			else {
 			 //running in the background
-			    sh "nohup python ${pyfilename} &"
+			    sh "nohup python3.9 ${pyfilename} &"
 			}
 		} else {
 		//windows we dont care :)
