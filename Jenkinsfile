@@ -14,8 +14,8 @@ pipeline {
     stage('Setup venv') {
       steps {
         script {
-
           sh 'python3.9 -m venv calculator'
+          sh '.  calculator/bin/activate'
         }
 
       }
