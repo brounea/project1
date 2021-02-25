@@ -9,12 +9,18 @@ pipeline {
 
     stage('runRestServer') {
       steps {
-        sh '''withPythonEnv(\'some-python-installation\') 
+        sh '''withPythonEnv(\'venv-prj1\') 
 	// Creates the virtualenv before proceeding
 	sh \'pip install nose\'
 
 //sh \' python rest_app.py\'
 '''
+      }
+    }
+
+    stage('runServerTest') {
+      steps {
+        sh 'sh \' python rest_app.py\''
       }
     }
 
