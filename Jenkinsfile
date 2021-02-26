@@ -27,42 +27,42 @@ pipeline {
 		stage('run rest_app bkend step') {
 			steps {
 				script {
-					runPythonFile('rest_app.py',1)
+					PythonFileExe('rest_app.py',1)
 				}
 			}
 		}
 		stage('run web_app frend step') {
 			steps {
 				script {
-					runPythonFile('web_app.py',1)
+					PythonFileExe('web_app.py',1)
 				}
 			}
 		}
 		stage('run backend testing step') {
 			steps {
 				script {
-					runPythonFile('backend_testing.py test',0)
+					PythonFileExe('backend_testing.py test',0)
 				}
 			}
 		}
 		stage('run frontend testing step ') {
 			steps {
 				script {
-					runPythonFile('frontend_testing.py test',0)
+					PythonFileExe('frontend_testing.py test',0)
 				}
 			}
 		}
 		stage('run combined testing step') {
 			steps {
 				script {
-					runPythonFile('combined_testing.py test',0)
+					PythonFileExe('combined_testing.py test',0)
 				}
 			}
 		}
 		stage('run clean environment step') {
 			steps {
 				script {
-					runPythonFile('clean_environment.py',0)
+					PythonFileExe('clean_environment.py',0)
 				}
 			}
 		}
@@ -76,7 +76,7 @@ pipeline {
 	    }
 	}
 }
-def runPythonFile(pyfilename, bckground){
+def PythonFileExe(pyfilename, bckground){
 // run python file, used for the testing files and fail the build in case of error
 	try{
 		if (isUnix()) {
